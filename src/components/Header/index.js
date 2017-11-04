@@ -4,10 +4,11 @@ import { withStyles } from 'material-ui/styles';
 import Bar from './Bar'
 
 const styles = theme => ({
-  heroHeader: {
-    width: '100%',
-    backgroundColor: '#607D8B',
-    textAlign: 'center',
+  root: {
+    backgroundImage: 'url(header.png)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: '497px'
   },
 });
 
@@ -40,8 +41,7 @@ class Header extends React.Component {
     return (
       <div>
         <Bar showHeader={this.state.showHeader}/>
-        <div className={classes.heroHeader}>
-          <img src='header.png' alt='header'/>
+        <div className={classes.root}>
         </div>
       </div>
     );

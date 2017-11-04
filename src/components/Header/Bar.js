@@ -9,8 +9,9 @@ import MenuIcon from 'material-ui-icons/Menu';
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit * 3,
-    width: '100%',
+    backgroundImage: 'url(header_top.png)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
   flex: {
     flex: 1,
@@ -28,18 +29,16 @@ function Bar(props) {
     style = {boxShadow: '0 0 0 0'}
   }
   return (
-    <div className={classes.root}>
-      <AppBar style={style}>
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography type="title" color="inherit" className={classes.flex}>
-            n-kuraswa.github.io
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar className={classes.root} style={style}>
+      <Toolbar>
+        <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography type="title" color="inherit" className={classes.flex}>
+          n-kuraswa.github.io
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 }
 
