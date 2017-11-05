@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -18,10 +19,11 @@ const styles = theme => ({
     textDecoration: 'underline',
     color: theme.palette.text.disabled
   },
-  cover: {
-    width: 151,
-    height: 151,
-  },
+  link: {
+    "&:hover": {
+      textDecoration: 'underline',
+    }
+  }
 });
 
 function ArticleList(props) {
@@ -29,23 +31,27 @@ function ArticleList(props) {
   return (
     <div className={classes.root}>
       <section>
-        <Typography type="title">
-          ブログ始めました
-        </Typography>
+        <Link to="/article/1">
+          <Typography type="title">
+            ブログ始めました
+          </Typography>
+        </Link>
         <div className={classes.articleInfo}>
           <Typography>
             2017.10.16
           </Typography>
         </div>
-        <Typography>
-          こんにちは。この度ブログを開設しました！
-          これから頑張って書いていきます！
-        </Typography>
-        <a href="#" className={classes.continuation}>
+        <Link to="/article/1" className={classes.link}>
+          <Typography>
+            こんにちは。この度ブログを開設しました！
+            これから頑張って書いていきます！
+          </Typography>
+        </Link>
+        <Link to="/article/1" className={classes.continuation}>
           <Typography>
             続きを読む
           </Typography>
-        </a>
+        </Link>
       </section>
       <Divider className={classes.divider} />
       <section>

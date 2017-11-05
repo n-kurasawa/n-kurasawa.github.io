@@ -6,10 +6,11 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
-    backgroundImage: 'url(header_top.png)',
+    backgroundImage: 'url(/header_top.png)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   },
@@ -35,7 +36,7 @@ function Bar(props) {
           <MenuIcon />
         </IconButton>
         <Typography type="title" color="inherit" className={classes.flex}>
-          n-kuraswa.github.io
+          <Link to='/'>n-kuraswa.github.io</Link>
         </Typography>
       </Toolbar>
     </AppBar>

@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Bar from './Bar'
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
-    backgroundImage: 'url(header.png)',
+    backgroundImage: 'url(/header.png)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    height: '497px'
+    height: 497,
+    boxShadow: '0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)'
   },
   header: {
     position: 'absolute',
@@ -56,7 +58,7 @@ class Header extends React.Component {
         <div className={classes.root}>
           <div className={classes.header}>
             <Typography type="display1" color='inherit'>
-              k_7016's Tech Blog
+              <Link to="/">k_7016's Tech Blog</Link>
             </Typography>
             <Typography className={classes.subtitle} type="title" color='inherit'>
               戒めの２番
