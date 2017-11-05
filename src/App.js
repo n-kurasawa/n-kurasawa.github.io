@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import withRoot from './components/withRoot';
 import Header from './components/Header/';
+import Container from './components/Container/';
 
 const styles = theme => ({
   root: {
@@ -15,6 +16,7 @@ function App(props) {
   return (
     <div className={classes.root}>
       <Header />
+      <Container />
     </div>
   );
 }
