@@ -30,7 +30,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
-    this.state = { showHeader: false };
+    this.state = { showHeader: false, showTitle: false };
   }
 
   componentDidMount() {
@@ -47,6 +47,12 @@ class Header extends React.Component {
     } else {
       this.setState({ showHeader: false });
     }
+
+    if (document.documentElement.scrollTop > 100) {
+      this.setState({ showTitle: true });
+    } else {
+      this.setState({ showTitle: false });
+    }
   }
 
   render() {
@@ -54,7 +60,7 @@ class Header extends React.Component {
 
     return (
       <div>
-        <Bar showHeader={this.state.showHeader}/>
+        <Bar showHeader={this.state.showHeader} showTitle={this.state.showTitle}/>
         <div className={classes.root}>
           <div className={classes.header}>
             <Typography type="display1" color='inherit'>
