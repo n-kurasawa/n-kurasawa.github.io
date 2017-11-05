@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles, MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import { blue, blueGrey } from 'material-ui/colors';
+import { lightBlue, blueGrey } from 'material-ui/colors';
 
 // Apply some reset
 const styles = theme => ({
@@ -19,8 +19,8 @@ const styles = theme => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: blueGrey,
-    secondary: blue,
+    primary: lightBlue,
+    secondary: blueGrey,
   },
 });
 

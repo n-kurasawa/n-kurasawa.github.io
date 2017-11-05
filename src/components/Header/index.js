@@ -12,13 +12,15 @@ const styles = theme => ({
     height: '497px'
   },
   header: {
-    flex: 1,
     position: 'absolute',
-    color: 'rgba(255, 255, 255, 1)',
-    top: 200,
-    left: 0,
-    right: 0,
+    top: 165,
+    left:0,
+    right:0,
+    width: '80%',
     margin: 'auto'
+  },
+  subtitle: {
+    marginTop: 10
   }
 });
 
@@ -52,9 +54,14 @@ class Header extends React.Component {
       <div>
         <Bar showHeader={this.state.showHeader}/>
         <div className={classes.root}>
-          <Typography type="display1" align='center' className={classes.header}>
-              Shut the fuck up and write some code.
-          </Typography>
+          <div className={classes.header}>
+            <Typography type="display1" color='inherit'>
+              k_7016's Tech Blog
+            </Typography>
+            <Typography className={classes.subtitle} type="title" color='inherit'>
+              戒めの２番
+            </Typography>
+          </div>
         </div>
       </div>
     );
