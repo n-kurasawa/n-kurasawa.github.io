@@ -14,9 +14,13 @@ const styles = theme => ({
     backgroundImage: 'url(/header_top.png)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    position: 'fixed',
+    overflow: 'hidden',
   },
-  flex: {
-    flex: 1,
+  title: {
+    width: '83%',
+    margin: '0 auto',
+    position: 'relative'
   },
   menuButton: {
     marginLeft: -12,
@@ -25,7 +29,7 @@ const styles = theme => ({
 });
 
 const defaultStyle = {
-  transition: 'all 300ms 0s ease',
+  transition: 'all 150ms linear 0s',
   top: '50px',
   position: 'inherit',
 }
@@ -45,14 +49,14 @@ function Bar(props) {
   return (
     <AppBar className={classes.root} style={style}>
       <Toolbar>
-        <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
+        {/*<IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
           <MenuIcon />
-        </IconButton>
-        <Transition in={showTitle} timeout={300}>
+        </IconButton>*/}
+        <Transition in={showTitle} timeout={150}>
           {(state) => (
             <Typography style={{
               ...defaultStyle,
-              ...transitionStyles[state]}} type="title" color="inherit" className={classes.flex}>
+              ...transitionStyles[state]}} type="title" color="inherit" className={classes.title}>
               <Link to="/">k_7016's Tech Blog</Link>
             </Typography>
           )}
