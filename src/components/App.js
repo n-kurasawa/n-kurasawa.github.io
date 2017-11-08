@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route } from 'react-router-dom'
 import { withStyles } from 'material-ui/styles';
-import withRoot from './components/withRoot';
-import Header from './components/Header/';
-import Container from './components/Container/';
-import ArticleList from './components/ArticleList/'
-import Article from './components/Article/'
+import withRoot from './withRoot';
+import Header from './Header/';
+import Container from './Container/';
+import ArticleList from './ArticleList/'
+import Article from './Article/'
 
 const styles = theme => ({
   root: {

@@ -26,73 +26,39 @@ const styles = theme => ({
   }
 });
 
+const Item = ({id, date, title, content, classes}) => (
+  <section>
+    <Link to={`/article/${id}`}>
+      <Typography type="title">
+        {title}
+      </Typography>
+    </Link>
+    <div className={classes.articleInfo}>
+      <Typography>
+        {date}
+      </Typography>
+    </div>
+    <Link to="/article/1" className={classes.link}>
+      <Typography>
+        {content}
+      </Typography>
+    </Link>
+    <Link to="/article/1" className={classes.continuation}>
+      <Typography>
+        続きを読む
+      </Typography>
+    </Link>
+  </section>
+)
+
 function ArticleList(props) {
-  const { classes } = props;
+  const { classes, articles } = props;
+  const list = articles.map((article) => {
+    <Item {...article} />
+  });
   return (
     <div className={classes.root}>
-      <section>
-        <Link to="/article/1">
-          <Typography type="title">
-            ブログ始めました
-          </Typography>
-        </Link>
-        <div className={classes.articleInfo}>
-          <Typography>
-            2017.10.16
-          </Typography>
-        </div>
-        <Link to="/article/1" className={classes.link}>
-          <Typography>
-            こんにちは。この度ブログを開設しました！
-            これから頑張って書いていきます！
-          </Typography>
-        </Link>
-        <Link to="/article/1" className={classes.continuation}>
-          <Typography>
-            続きを読む
-          </Typography>
-        </Link>
-      </section>
-      <Divider className={classes.divider} />
-      <section>
-        <Typography type="title">
-          ブログ始めました
-        </Typography>
-        <div className={classes.articleInfo}>
-          <Typography>
-            2017.10.16
-          </Typography>
-        </div>
-        <Typography>
-          こんにちは。この度ブログを開設しました！
-          これから頑張って書いていきます！
-        </Typography>
-        <a href="#" className={classes.continuation}>
-          <Typography>
-            続きを読む
-          </Typography>
-        </a>
-      </section>
-      <Divider className={classes.divider} />
-      <section>
-        <Typography type="title">
-          ブログ始めました
-        </Typography>
-        <div className={classes.articleInfo}>
-          <Typography>
-            2017.10.16
-          </Typography>
-        </div>
-        <Typography>
-          こんにちは。この度ブログを開設しました！
-          これから頑張って書いていきます！
-        </Typography>
-        <a href="#" className={classes.continuation}>
-          <Typography>
-            続きを読む
-          </Typography>
-        </a>
-      </section>
+      {list}
     </div>
   );
 }
