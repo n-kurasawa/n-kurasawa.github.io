@@ -8,6 +8,9 @@ import Container from './Container/';
 import ArticleList from './ArticleList/'
 import Article from './Article/'
 
+import store from "../store/";
+import { Provider } from "redux-zero/react"
+
 const styles = theme => ({
   root: {
   },
@@ -17,15 +20,17 @@ function App(props) {
   const { classes } = props;
 
   return (
-    <BrowserRouter>
-      <div className={classes.root}>
-        <Header />
-        <Container>
-          <Route exact path='/' component={ArticleList} />
-          <Route exact path='/article/:id' component={Article} />
-        </Container>
-      </div>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className={classes.root}>
+          <Header />
+          <Container>
+            <Route exact path='/' component={ArticleList} />
+            <Route exact path='/article/:id' component={Article} />
+          </Container>
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

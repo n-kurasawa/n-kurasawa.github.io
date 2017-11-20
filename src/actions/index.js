@@ -1,14 +1,15 @@
-// const actions = store => ({
-//   increment: state => ({ count: state.count + 1 }),
-//   decrement: state => ({ count: state.count - 1 })
-// });
+import * as Api from '../api/';
 
-function actions(store) {
-  return {
-    increment: (state) => {
-      { state }
-    }
+const actions = ({ getState, setState }) => ({
+  init() {
+    return Promise.resolve()
+      .then(() => (
+        Api.getArticles()
+      ))
+      .then((articles) => {
+        setState({ articles })
+      })
   }
-}
+});
 
 export default actions;
