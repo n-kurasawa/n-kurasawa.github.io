@@ -26,7 +26,9 @@ function App(props) {
           <Header />
           <Container>
             <Route exact path='/' component={ArticleList} />
-            <Route exact path='/article/:id' component={Article} />
+            <Route exact path='/article/:id' render={({match}) => (
+              <Article {...props} match={match} />
+            )} />
           </Container>
         </div>
       </BrowserRouter>

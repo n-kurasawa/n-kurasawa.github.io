@@ -9,6 +9,18 @@ const actions = ({ getState, setState }) => ({
       .then((articles) => {
         setState({ articles })
       })
+  },
+  getArticle(state, id) {
+    return Promise.resolve()
+    .then(() => (
+      Api.getArticles()
+    ))
+    .then((articles) => {;
+      return articles ? articles[id - 1] : {};
+    })
+    .then((article) => {
+      setState({ article });
+    });
   }
 });
 

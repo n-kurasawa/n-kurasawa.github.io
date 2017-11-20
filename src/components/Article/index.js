@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
+import { connect } from "redux-zero/react";
+import actions from "../../actions/";
+
+const mapToProps = ({ article }) => ({ article });
 
 const styles = theme => ({
   root: {
@@ -15,32 +19,35 @@ const styles = theme => ({
   }
 });
 
-function Article(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <article>
-        <div className={classes.articleInfo}>
-          <Typography>
-            2017.10.16
+class Article extends React.Component {
+  componentDidMount() {
+    this.props.getArticle(this.props.match.params.id);
+  }
+  render() {
+    const { classes, article: { date, title, content } } = this.props;
+    return (
+      <div className={classes.root}>
+        <article>
+          <div className={classes.articleInfo}>
+            <Typography>
+              {date}
+            </Typography>
+          </div>
+          <Typography type="title">
+            {title}
           </Typography>
-        </div>
-        <Typography type="title">
-          ブログ始めました
-        </Typography>
-        <Divider className={classes.divider} />
-        <Typography>
-          こんにちは。この度ブログを開設しました！
-          <br />
-          これから頑張って書いていきます！
-        </Typography>
-      </article>
-    </div>
-  );
+          <Divider className={classes.divider} />
+          <Typography>
+            {content}
+          </Typography>
+        </article>
+      </div>
+    );
+  }
 }
 
 Article.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Article);
+export default withStyles(styles)(connect(mapToProps, actions)(Article));
